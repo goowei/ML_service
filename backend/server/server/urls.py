@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from apps.endpoints.views import EndPointsView
 from django.conf.urls import url, include
 from apps.endpoints.urls import urlpatterns as endpoints_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',EndPointsView.as_view(), name='home'),
 ]
 urlpatterns += endpoints_urlpatterns
